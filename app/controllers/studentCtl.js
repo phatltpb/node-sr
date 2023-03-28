@@ -1,3 +1,4 @@
 const studentService = require('../services/studentService')
 
-exports.getAll = studentService.getAll
+const StudentsCtl = studentService
+module.exports = StudentsCtl

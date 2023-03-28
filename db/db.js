@@ -1,15 +1,11 @@
-const mongoose = require('mongoose')
-const studentModel = require('../../test0/es6_project_back-end/src/models/studentModel')
+const mysql = require('mysql2')
 require('dotenv').config()
-string_connection = process.env.DB_STRING
+// create the connection to database
+const connection = mysql.createPool({
+    host: 'localhost',
+    user: 'root',
+    database: 'poly_database',
+    password: '12345678',
+})
 
-exports.conection = async () => {
-    await mongoose
-        .connect(string_connection, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            autoIndex: true,
-        })
-        .then(() => console.log('Connected!'))
-}
-module.exports = mongoose.model('student', studentModel)
+module.exports = connection.promise()

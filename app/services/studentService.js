@@ -1,3 +1,7 @@
-const studentRepo = require('../Repositories/studentRepositories')
+const studentRepo = require('../repository/studentRepo')
 
-exports.getAll = studentRepo.getAll
+let getAll = studentRepo.getAll
+
+module.exports = {
+    getAll,
+}
