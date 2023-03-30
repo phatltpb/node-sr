@@ -1,7 +1,9 @@
 const studentRepo = require('../repository/studentRepo')
-
-let getAll = studentRepo.getAll
-
-module.exports = {
-    getAll,
+const studentService = {}
+studentService.getAll = async () => {
+    const row = await studentRepo.getAll()
+    console.log(row)
+    return row
 }
+
+module.exports = studentService

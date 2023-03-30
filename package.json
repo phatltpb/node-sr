@@ -4,9 +4,11 @@
     "description": "",
     "main": "index.js",
     "scripts": {
+        "prepare": "rimraf .husky&&husky install&&husky add .husky/pre-commit \"npm run precommit\"",
+        "eslint": "eslint index.js app/",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node index",
-        "dev": "nodemon index"
+        "dev": "nodemon index eslint",
+        "start": "node index eslint"
     },
     "author": "",
     "license": "ISC",
@@ -18,6 +20,13 @@
         "jsonwebtoken": "^9.0.0",
         "morgan": "^1.10.0",
         "mysql2": "^3.2.0",
-        "nodemon": "^2.0.22"
+        "nodemon": "^2.0.22",
+        "sequelize": "^6.30.0",
+        "sequelize-cli": "^6.6.0",
+        "sequelize-temporalize": "^4.2.0"
+    },
+    "devDependencies": {
+        "husky": "^8.0.3",
+        "lint-staged": "^13.2.0"
     }
 }
